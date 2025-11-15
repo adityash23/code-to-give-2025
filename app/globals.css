@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #F7F2FF;
   --foreground: #171717;
+  --donate-orange: #FF6B35;
+  --donate-orange-hover: #E55A2B;
 }
 
 @theme inline {

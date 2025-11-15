@@ -3,7 +3,7 @@ import Hero from './components/Hero';
 
 export default function DonatePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#F7F2FF]">
       <Header />
       <main>
         <Hero />
