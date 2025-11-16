@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import Hero from './components/Hero'
 import ImpactStats from './components/ImpactStats'
 import MissionSections from './components/MissionSections'
+import NewShelterSection from './components/NewShelterSection'
 import Navbar from './components/Navbar'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <div id="next-section" ref={nextSectionRef}>
           <MissionSections />
         </div>
+        <NewShelterSection />
       </main>
     </div>
   )

@@ -23,9 +23,14 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(6px)' },
         },
+        'fade-in': {
+          '0%': { opacity: 0, transform: 'translateY(20px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
       },
       animation: {
         'bounce-slow': 'bounce-slow 2s ease-in-out infinite',
+        'fade-in': 'fade-in 1s ease-out',
       },
       boxShadow: {
         glass: '0 20px 45px rgba(154, 108, 204, 0.25)',
