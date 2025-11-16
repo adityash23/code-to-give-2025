@@ -8,48 +8,31 @@ interface HeroProps {
 
 export function Hero({ onNavigate }: HeroProps) {
   return (
-    <section className="relative bg-gradient-to-br from-[#8B7BA8] via-[#9B89BC] to-[#B5A3D4] text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <h1 className="text-4xl lg:text-6xl tracking-tight">
-              Every woman deserves safety.
-              <br />
-              Every child deserves joy.
-              <br />
-              Every future deserves hope.
-            </h1>
-            <p className="text-lg lg:text-xl opacity-95">
-              The Shield of Athena is a lifeline for women and children escaping conjugal and sexual violence. We provide immediate safety, trauma-informed counseling, children's programs, and long-term support so families can rebuild their lives with dignity.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
-                onClick={() => onNavigate('emergency')}
-                className="bg-[#FF8C00] hover:bg-[#FF7C00] text-white"
-              >
-                Get Help Now
-              </Button>
-              <Button 
-                size="lg" 
-                onClick={() => onNavigate('programs')}
-                variant="outline" 
-                className="bg-white/10 border-white text-white hover:bg-white/20"
-              >
-                Learn About Our Programs
-              </Button>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="rounded-lg overflow-hidden shadow-2xl">
-              <img
-                src="../../assets/react.svg"
-                alt="Women and children finding safety"
-                className="w-full h-[400px] object-cover"
-              />
-            </div>
-          </div>
-        </div>
+    <section className="bg-gradient-to-b from-[#8B7BA8] via-[#9B89BC] to-[#B5A3D4] text-white text-center">
+      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-10 lg:py-14 space-y-6">
+        <h1 className="text-4xl lg:text-5xl font-semibold leading-snug tracking-tight">
+          Every woman deserves safety.
+          <br />
+          Every child deserves joy.
+          <br />
+          Every future deserves hope.
+        </h1>
+
+        <p className="text-lg lg:text-xl opacity-95 max-w-2xl mx-auto leading-relaxed">
+          At <span className="font-semibold">The Shield of Athena</span>, we
+          open our doors to women and children escaping violence. Here, they
+          find safety, counseling, and long‑term support to rebuild their lives
+          with dignity. But we can only keep those doors open with help from
+          people like you.
+        </p>
+
+        <Button
+          size="lg"
+          onClick={() => onNavigate('donate')}
+          className="bg-[#FF8C00] hover:bg-[#FF7C00] text-white px-10 py-4 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all"
+        >
+          Open the Door for Someone Tonight
+        </Button>
       </div>
     </section>
   );

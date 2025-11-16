@@ -6,7 +6,6 @@ import { HomePage } from "./pages/home";
 import { VisionMissionPage } from "./pages/vision";
 import { HistoryPage } from "./pages/history";
 import { GovernancePage } from "./pages/governance";
-import { AwardsPage } from "./pages/awards";
 import { NewsPage } from "./pages/news";
 import { EmergencyPage } from "./pages/emergency";
 import { DonationPage } from "./pages/donation";
@@ -54,8 +53,6 @@ export default function App() {
         return <HistoryPage />;
       case "governance":
         return <GovernancePage />;
-      case "awards":
-        return <AwardsPage />;
       case "news":
         return <NewsPage />;
       case "emergency":

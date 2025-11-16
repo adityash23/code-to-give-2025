@@ -19,8 +19,9 @@ export function HomePage({ onNavigate, onDonateClick }: HomePageProps) {
     <div>
       <Hero onNavigate={onNavigate} />
       <Statistics />
-      <Mission />
       <FundraisingSection onDonateClick={onDonateClick || (() => {})} />
+      <Mission />
+
       <Services onNavigate={onNavigate} />
       <TestimonialsCarousel onNavigate={onNavigate} />
       <CurrentProjects />
