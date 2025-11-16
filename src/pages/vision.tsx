@@ -1,4 +1,3 @@
-import React from 'react';
 import { Target, Eye, Heart } from 'lucide-react';
 
 export function VisionMissionPage() {

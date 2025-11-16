@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function Mission() {
   return (
     <section className="py-20 bg-gradient-to-b from-[#F3F0F8] to-white">

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Heart, GraduationCap, Users } from 'lucide-react';
 
 export function VolunteerPage() {

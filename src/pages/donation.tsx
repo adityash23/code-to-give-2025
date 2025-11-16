@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from '../components/ui/button';
 import type { PageType } from '../App';
 import { Heart, Phone, Mail, Gift, Calendar, Building } from 'lucide-react';

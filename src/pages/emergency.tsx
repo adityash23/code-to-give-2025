@@ -1,5 +1,4 @@
-import React from 'react';
-import { Phone, Home, MessageCircle, Users, AlertTriangle } from 'lucide-react';
+import { Home, MessageCircle, Users, AlertTriangle } from 'lucide-react';
 
 export function EmergencyPage() {
   return (

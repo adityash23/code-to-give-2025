@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';

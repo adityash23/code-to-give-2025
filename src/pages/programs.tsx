@@ -1,4 +1,3 @@
-import React from 'react';
 import { Users, Home, Heart, Scale, Building, GraduationCap, Globe } from 'lucide-react';
 
 export function ProgramsPage() {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Newspaper } from 'lucide-react';
 
 export function NewsPage() {

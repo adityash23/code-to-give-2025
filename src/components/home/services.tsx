@@ -1,4 +1,3 @@
-import React from 'react';
 import { Home, Heart, Scale, GraduationCap, Globe2, Users } from 'lucide-react';
 import type { PageType } from '../../App';
 

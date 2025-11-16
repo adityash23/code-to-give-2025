@@ -1,4 +1,3 @@
-import React from 'react';
 import { Building2, TrendingUp, Award, Users, DollarSign } from 'lucide-react';
 
 export function SponsorPage() {
