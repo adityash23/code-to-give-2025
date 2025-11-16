@@ -1,15 +1,12 @@
 import React from 'react';
 import { Hero } from '../components/home/hero';
-
-/*
-import { Statistics } from '../components/home/Statistics';
-import { Mission } from '../components/home/Mission';
-import { FundraisingSection } from '../components/home/FundraisingSection';
-import { Services } from '../components/home/Services';
-import { TestimonialsCarousel } from '../components/home/TestimonialsCarousel';
-import { CurrentProjects } from '../components/home/CurrentProjects';
-import { Sponsors } from '../components/home/Sponsors';
-*/
+import { Statistics } from '../components/home/statistics';
+import { Mission } from '../components/home/mission';
+import { FundraisingSection } from '../components/home/fundraising';
+import { Services } from '../components/home/services';
+import { TestimonialsCarousel } from '../components/home/testimonials';
+import { CurrentProjects } from '../components/home/currentProjects';
+import { Sponsors } from '../components/home/sponsors';
 import type { PageType } from '../App';
 
 interface HomePageProps {
@@ -21,7 +18,6 @@ export function HomePage({ onNavigate, onDonateClick }: HomePageProps) {
   return (
     <div>
       <Hero onNavigate={onNavigate} />
-      {/*
       <Statistics />
       <Mission />
       <FundraisingSection onDonateClick={onDonateClick || (() => {})} />
@@ -29,7 +25,6 @@ export function HomePage({ onNavigate, onDonateClick }: HomePageProps) {
       <TestimonialsCarousel onNavigate={onNavigate} />
       <CurrentProjects />
       <Sponsors onNavigate={onNavigate} />
-      */}
     </div>
   );
 }

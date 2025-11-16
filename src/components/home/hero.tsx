@@ -43,7 +43,7 @@ export function Hero({ onNavigate }: HeroProps) {
           <div className="relative">
             <div className="rounded-lg overflow-hidden shadow-2xl">
               <img
-                src="react.svg"
+                src="../../assets/react.svg"
                 alt="Women and children finding safety"
                 className="w-full h-[400px] object-cover"
               />

@@ -2,8 +2,8 @@ import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { PageType } from '../App';
-const logoImage = 'react.svg';
+import type { PageType } from '../App';
+import logoImage  from '../assets/react.svg';
 
 interface FooterProps {
   onNavigate: (page: PageType) => void;

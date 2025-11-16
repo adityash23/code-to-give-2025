@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from './ui/button';
-import { PageType } from '../App';
-const logoImage = 'react.svg';
+import  type { PageType } from '../App';
+import logoImage from '../assets/react.svg';
 
 interface HeaderProps {
   currentPage: PageType;

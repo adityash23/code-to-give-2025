@@ -3,20 +3,18 @@ import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 import { DonationModal } from "./components/donationModal";
 import { HomePage } from "./pages/home";
-/*
-import { VisionMissionPage } from "./pages/VisionMissionPage";
-import { HistoryPage } from "./pages/HistoryPage";
-import { GovernancePage } from "./pages/GovernancePage";
+import { VisionMissionPage } from "./pages/vision";
+import { HistoryPage } from "./pages/history";
+import { GovernancePage } from "./pages/governance";
 import { AwardsPage } from "./pages/awards";
-import { NewsPage } from "./pages/NewsPage";
-import { EmergencyPage } from "./pages/EmergencyPage";
-import { DonationPage } from "./pages/DonationPage";
-import { DonationReasonsPage } from "./pages/DonationReasonsPage";
-import { DonationAmountPage } from "./pages/DonationAmountPage";
-import { ProgramsPage } from "./pages/ProgramsPage";
-import { VolunteerPage } from "./pages/VolunteerPage";
-import { SponsorPage } from "./pages/SponsorPage";
-*/
+import { NewsPage } from "./pages/news";
+import { EmergencyPage } from "./pages/emergency";
+import { DonationPage } from "./pages/donation";
+import { DonationReasonsPage } from "./pages/donationReasons";
+import { DonationAmountPage } from "./pages/donationAmount";
+import { ProgramsPage } from "./pages/programs";
+import { VolunteerPage } from "./pages/volunteer";
+import { SponsorPage } from "./pages/sponsor";
 
 export type PageType =
   | "home"
@@ -50,7 +48,7 @@ export default function App() {
           />
         );
       
-      /*  case "vision-mission":
+      case "vision-mission":
         return <VisionMissionPage />;
       case "history":
         return <HistoryPage />;
@@ -78,7 +76,6 @@ export default function App() {
         return <VolunteerPage />;
       case "sponsor":
         return <SponsorPage />;
-      */
       default:
         return <HomePage onNavigate={setCurrentPage} />;
     }
