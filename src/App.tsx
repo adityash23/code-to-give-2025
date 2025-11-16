@@ -6,10 +6,10 @@ import NewShelterSection from './components/NewShelterSection'
 import Navbar from './components/Navbar'
 
 function App() {
-  const nextSectionRef = useRef<HTMLDivElement | null>(null)
+  const impactSectionRef = useRef<HTMLDivElement | null>(null)
 
   const handleScrollToNext = () => {
-    nextSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+    impactSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -17,8 +17,10 @@ function App() {
       <Navbar />
       <main className="flex flex-col">
         <Hero onScrollToNext={handleScrollToNext} />
-        <ImpactStats />
-        <div id="next-section" ref={nextSectionRef}>
+        <div id="impact-stats" ref={impactSectionRef}>
+          <ImpactStats />
+        </div>
+        <div id="mission-sections">
           <MissionSections />
         </div>
         <NewShelterSection />
