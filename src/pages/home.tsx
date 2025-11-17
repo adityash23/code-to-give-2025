@@ -7,23 +7,26 @@ import { Services } from '../components/home/services';
 import { TestimonialsCarousel } from '../components/home/testimonials';
 import { CurrentProjects } from '../components/home/currentProjects';
 import { Sponsors } from '../components/home/sponsors';
+import type { PageType } from '../App';
+
 interface HomePageProps {
+  onNavigate: (page: PageType) => void;
   onDonateClick?: () => void;
 }
 
-export function HomePage({ onDonateClick }: HomePageProps) {
+export function HomePage({ onNavigate, onDonateClick }: HomePageProps) {
   return (
     <div>
-      <Hero onDonateClick={onDonateClick} />
+      <Hero onNavigate={onNavigate} />
       <Statistics />
       <FundraisingSection onDonateClick={onDonateClick || (() => {})} />
       <SponsorsLeaderboard />
       <Mission />
 
-      <Services />
-      <TestimonialsCarousel onDonateClick={onDonateClick} />
+      <Services onNavigate={onNavigate} />
+      <TestimonialsCarousel onNavigate={onNavigate} />
       <CurrentProjects />
-      <Sponsors onDonateClick={onDonateClick} />
+      <Sponsors onNavigate={onNavigate} />
     </div>
   );
 }

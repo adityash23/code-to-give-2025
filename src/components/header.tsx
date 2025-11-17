@@ -23,6 +23,7 @@ export function Header({ currentPage, onNavigate, onDonateClick, onLoginClick }:
   const navLinks: Array<{ label: string; page: PageType }> = [
     { label: 'Home', page: 'home' },
     { label: 'Are You a Victim?', page: 'emergency' },
+    { label: 'Collabration', page: 'volunteer' },
   ];
 
   return (
