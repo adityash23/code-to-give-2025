@@ -84,9 +84,9 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               <h2 className="text-2xl font-semibold mb-4">Quick Donate</h2>
               <p className="text-gray-600 mb-4">Make a quick donation to support ongoing programs.</p>
               <div className="flex gap-2">
-                <button className="px-4 py-2 bg-[#5f599b] text-white rounded-lg hover:bg-[#4b4380] transition">€10</button>
-                <button className="px-4 py-2 bg-[#5f599b] text-white rounded-lg hover:bg-[#4b4380] transition">€25</button>
-                <button className="px-4 py-2 bg-[#5f599b] text-white rounded-lg hover:bg-[#4b4380] transition">€50</button>
+                <button className="px-4 py-2 bg-[#5f599b] text-white rounded-lg hover:bg-[#4b4380] transition">$10</button>
+                <button className="px-4 py-2 bg-[#5f599b] text-white rounded-lg hover:bg-[#4b4380] transition">$25</button>
+                <button className="px-4 py-2 bg-[#5f599b] text-white rounded-lg hover:bg-[#4b4380] transition">$50</button>
               </div>
             </section>
           </div>
