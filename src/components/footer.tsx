@@ -1,7 +1,7 @@
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import logoImage  from '../assets/react.svg';
+const logoImage = '/logo.png';
 
 interface FooterProps {
   onDonateClick?: () => void;
