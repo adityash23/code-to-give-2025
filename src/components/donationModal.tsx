@@ -28,7 +28,32 @@ export function DonationModal({ isOpen, onClose, onLoginClick }: DonationModalPr
     onClose();
   };
 
-  const suggestedAmounts = [35, 50, 100, 250, 500, 1000];
+  const suggestedAmounts = [35, 50, 100, 250, 500, 1000, 10000];
+
+  const getImpactMessage = (amount: number | string): string => {
+    const numAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
+    
+    if (donationType === 'monthly') {
+      return `Your monthly gift of $${amount} provides ongoing support to families rebuilding their lives.`;
+    }
+
+    // Specific messages for one-time donations
+    if (numAmount === 35) {
+      return "Become a member and learn about violence and our services.";
+    }
+    if (numAmount === 100) {
+      return "Provide 2 weeks of meals for a family preparing to leave our shelter";
+    }
+    if (numAmount === 500) {
+      return "Provide 10 weeks of meals for a family preparing to leave our shelter";
+    }
+    if (numAmount === 1000 || numAmount === 10000) {
+      return "Sponsor and furnish an apartment in our Second Step Resource.";
+    }
+    
+    // Default message for other amounts
+    return `Your donation of $${amount} makes an immediate impact on families in crisis.`;
+  };
 
   const ShareButtons = () => (
     <div className="flex gap-3 justify-center">
@@ -48,21 +73,53 @@ export function DonationModal({ isOpen, onClose, onLoginClick }: DonationModalPr
   );
 
   return (
-    <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
-      <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-[#8B7BA8] to-[#9B89BC] text-white p-6 flex items-center justify-between rounded-t-xl">
-          <div>
-            <h2 className="text-2xl lg:text-3xl">Make Your Donation</h2>
-            <p className="text-sm opacity-90 mt-1">Every gift makes a difference</p>
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-white/5 backdrop-blur-md">
+      <div className="min-h-full flex flex-col md:flex-row gap-6 max-w-6xl mx-auto p-4 md:p-10 md:items-center">
+        {/* Calm storytelling column to balance the donation UI */}
+        <div className="flex-1 w-full bg-white/90 border border-slate-200 rounded-2xl shadow-sm p-6 md:p-8 flex flex-col">
+          <p className="text-sm font-semibold tracking-[0.2em] text-[#8B7BA8] uppercase">
+            Why We Need You
+          </p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mt-3">
+            Your compassion keeps families safe and hopeful.
+          </h2>
+          <div className="mt-6 flex-1 max-h-[45vh] md:max-h-[60vh] overflow-y-auto pr-1 text-gray-600 leading-relaxed space-y-4">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse volutpat magna sed
+              justo malesuada dictum. Cras consectetur ligula et neque scelerisque, at scelerisque
+              sem tristique. Integer facilisis mattis lectus, eu consequat ligula elementum nec.
+            </p>
+            <p>
+              Etiam eu varius risus. Vivamus et rutrum arcu. Duis id interdum erat. Praesent
+              imperdiet viverra urna sed gravida. Curabitur volutpat mauris vel lacus mattis
+              convallis. Donec faucibus, magna sed hendrerit imperdiet, massa justo aliquet ipsum,
+              sed tincidunt ex erat sed odio. Pellentesque habitant morbi tristique senectus et netus
+              et malesuada fames ac turpis egestas.
+            </p>
+            <p>
+              Nunc dictum malesuada eros sed pulvinar. Nulla viverra sagittis arcu a suscipit. Fusce
+              id rhoncus quam. Aenean volutpat malesuada erat non posuere. Donec congue purus eget
+              enim pretium fermentum. Integer posuere magna quis quam consequat, et sodales dui
+              tincidunt.
+            </p>
           </div>
-          <button onClick={handleClose} className="hover:bg-white/20 p-2 rounded-lg transition-colors">
-            <X className="w-6 h-6" />
-          </button>
         </div>
 
-        {/* Content */}
-        <div className="p-6 lg:p-8">
+        <div className="w-full md:max-w-md flex justify-end">
+          <div className="bg-white rounded-2xl shadow-xl border border-slate-100 w-full max-h-[85vh] overflow-y-auto">
+            {/* Header */}
+            <div className="sticky top-0 bg-gradient-to-r from-[#8B7BA8] to-[#9B89BC] text-white p-6 flex items-center justify-between rounded-t-2xl">
+              <div>
+                <h2 className="text-2xl lg:text-3xl">Make Your Donation</h2>
+                <p className="text-sm opacity-90 mt-1">Every gift makes a difference</p>
+              </div>
+              <button onClick={handleClose} className="hover:bg-white/20 p-2 rounded-lg transition-colors">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="p-6 lg:p-8">
           {step === 'amount' && (
             <div className="space-y-6">
               {/* Donation Type Toggle - One-Time Priority */}
@@ -151,11 +208,7 @@ export function DonationModal({ isOpen, onClose, onLoginClick }: DonationModalPr
               {(selectedAmount || customAmount) && (
                 <div className="bg-[#8B7BA8]/10 rounded-lg p-4 border border-[#8B7BA8]/30">
                   <p className="text-[#5B4B7A] text-center">
-                    {donationType === 'monthly' ? (
-                      <>Your monthly gift of ${selectedAmount || customAmount} provides ongoing support to families rebuilding their lives.</>
-                    ) : (
-                      <>Your donation of ${selectedAmount || customAmount} makes an immediate impact on families in crisis.</>
-                    )}
+                    {getImpactMessage(selectedAmount || customAmount)}
                   </p>
                 </div>
               )}
@@ -377,5 +430,7 @@ export function DonationModal({ isOpen, onClose, onLoginClick }: DonationModalPr
         </div>
       </div>
     </div>
+  </div>
+</div>
   );
 }

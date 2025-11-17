@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 import  type { PageType } from '../App';
-import logoImage from '../assets/react.svg';
+
+const logoImage = '/logo.png';
 
 interface HeaderProps {
   currentPage: PageType;
@@ -13,13 +14,16 @@ interface HeaderProps {
 
 export function Header({ currentPage, onNavigate, onDonateClick, onLoginClick }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const handleNavigation = (page: PageType) => {
     onNavigate(page);
     setMobileMenuOpen(false);
-    setActiveDropdown(null);
   };
+
+  const navLinks: Array<{ label: string; page: PageType }> = [
+    { label: 'Home', page: 'home' },
+    { label: 'Are You a Victim?', page: 'emergency' },
+  ];
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -35,127 +39,30 @@ export function Header({ currentPage, onNavigate, onDonateClick, onLoginClick }:
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
-            {/* Who Are We Dropdown */}
-            <div 
-              className="relative group"
-              onMouseEnter={() => setActiveDropdown('who')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button className="flex items-center gap-1 text-gray-700 hover:text-[#5B4B7A] transition-colors py-2">
-                WHO ARE WE?
-                <ChevronDown className="w-4 h-4" />
+            {navLinks.map((link) => (
+              <button
+                key={link.page}
+                onClick={() => handleNavigation(link.page)}
+                className={`text-sm font-medium transition-colors ${
+                  currentPage === link.page ? 'text-[#5B4B7A]' : 'text-gray-700 hover:text-[#5B4B7A]'
+                }`}
+              >
+                {link.label.toUpperCase()}
               </button>
-              {activeDropdown === 'who' && (
-                <div className="absolute top-full left-0 mt-0 w-64 bg-white shadow-lg rounded-b-lg border border-gray-200">
-                  <button
-                    onClick={() => handleNavigation('vision-mission')}
-                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-[#F3F0F8] hover:text-[#5B4B7A]"
-                  >
-                    Vision, Mission and Values
-                  </button>
-                  <button
-                    onClick={() => handleNavigation('history')}
-                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-[#F3F0F8] hover:text-[#5B4B7A]"
-                  >
-                    History
-                  </button>
-                  <button
-                    onClick={() => handleNavigation('governance')}
-                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-[#F3F0F8] hover:text-[#5B4B7A]"
-                  >
-                    Governance and Board of Directors
-                  </button>
-                  <button
-                    onClick={() => handleNavigation('awards')}
-                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-[#F3F0F8] hover:text-[#5B4B7A]"
-                  >
-                    Awards and Recognition
-                  </button>
-                  <button
-                    onClick={() => handleNavigation('news')}
-                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-[#F3F0F8] hover:text-[#5B4B7A] rounded-b-lg"
-                  >
-                    News
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* Are You a Victim Dropdown */}
-            <div 
-              className="relative group"
-              onMouseEnter={() => setActiveDropdown('victim')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button className="flex items-center gap-1 text-gray-700 hover:text-[#5B4B7A] transition-colors py-2">
-                ARE YOU A VICTIM?
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              {activeDropdown === 'victim' && (
-                <div className="absolute top-full left-0 mt-0 w-64 bg-white shadow-lg rounded-b-lg border border-gray-200">
-                  <button
-                    onClick={() => handleNavigation('emergency')}
-                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-[#F3F0F8] hover:text-[#5B4B7A] rounded-b-lg"
-                  >
-                    Get Help Now
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* Programs & Events */}
-            <button
-              onClick={() => handleNavigation('programs')}
-              className="text-gray-700 hover:text-[#5B4B7A] transition-colors"
-            >
-              PROGRAMS & EVENTS
-            </button>
-
-            {/* Get Involved Dropdown */}
-            <div 
-              className="relative group"
-              onMouseEnter={() => setActiveDropdown('involved')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button className="flex items-center gap-1 text-gray-700 hover:text-[#5B4B7A] transition-colors py-2">
-                GET INVOLVED
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              {activeDropdown === 'involved' && (
-                <div className="absolute top-full left-0 mt-0 w-64 bg-white shadow-lg rounded-b-lg border border-gray-200">
-                  <button
-                    onClick={() => handleNavigation('donation')}
-                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-[#F3F0F8] hover:text-[#5B4B7A]"
-                  >
-                    Donations
-                  </button>
-                  <button
-                    onClick={() => handleNavigation('volunteer')}
-                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-[#F3F0F8] hover:text-[#5B4B7A]"
-                  >
-                    Volunteering
-                  </button>
-                  <button
-                    onClick={() => handleNavigation('volunteer')}
-                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-[#F3F0F8] hover:text-[#5B4B7A]"
-                  >
-                    Student Internships
-                  </button>
-                  <button
-                    onClick={() => handleNavigation('sponsor')}
-                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-[#F3F0F8] hover:text-[#5B4B7A] rounded-b-lg"
-                  >
-                    Become a Sponsor
-                  </button>
-                </div>
-              )}
-            </div>
+            ))}
 
             <Button 
               onClick={onDonateClick}
               className="bg-[#FF8C00] hover:bg-[#FF7C00] text-white px-6"
             >
               DONATE NOW
+            </Button>
+            <Button
+              onClick={onLoginClick}
+              variant="outline"
+              className="border-[#8B7BA8] text-[#5B4B7A] hover:bg-[#F3F0F8] px-6"
+            >
+              Sign in
             </Button>
           </nav>
 
@@ -176,81 +83,27 @@ export function Header({ currentPage, onNavigate, onDonateClick, onLoginClick }:
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col gap-4">
-              <div>
-                <p className="text-gray-900 mb-2">WHO ARE WE?</p>
-                <div className="pl-4 space-y-2">
-                  <button 
-                    onClick={() => handleNavigation('vision-mission')}
-                    className="block text-left text-gray-700 hover:text-[#5B4B7A]"
-                  >
-                    Vision, Mission and Values
-                  </button>
-                  <button 
-                    onClick={() => handleNavigation('history')}
-                    className="block text-left text-gray-700 hover:text-[#5B4B7A]"
-                  >
-                    History
-                  </button>
-                  <button 
-                    onClick={() => handleNavigation('governance')}
-                    className="block text-left text-gray-700 hover:text-[#5B4B7A]"
-                  >
-                    Governance
-                  </button>
-                  <button 
-                    onClick={() => handleNavigation('awards')}
-                    className="block text-left text-gray-700 hover:text-[#5B4B7A]"
-                  >
-                    Awards
-                  </button>
-                  <button 
-                    onClick={() => handleNavigation('news')}
-                    className="block text-left text-gray-700 hover:text-[#5B4B7A]"
-                  >
-                    News
-                  </button>
-                </div>
-              </div>
-              <button 
-                onClick={() => handleNavigation('emergency')}
-                className="text-left text-gray-700 hover:text-[#5B4B7A]"
-              >
-                ARE YOU A VICTIM?
-              </button>
-              <button 
-                onClick={() => handleNavigation('programs')}
-                className="text-left text-gray-700 hover:text-[#5B4B7A]"
-              >
-                PROGRAMS & EVENTS
-              </button>
-              <div>
-                <p className="text-gray-900 mb-2">GET INVOLVED</p>
-                <div className="pl-4 space-y-2">
-                  <button 
-                    onClick={() => handleNavigation('donation')}
-                    className="block text-left text-gray-700 hover:text-[#5B4B7A]"
-                  >
-                    Donations
-                  </button>
-                  <button 
-                    onClick={() => handleNavigation('volunteer')}
-                    className="block text-left text-gray-700 hover:text-[#5B4B7A]"
-                  >
-                    Volunteering
-                  </button>
-                  <button 
-                    onClick={() => handleNavigation('sponsor')}
-                    className="block text-left text-gray-700 hover:text-[#5B4B7A]"
-                  >
-                    Become a Sponsor
-                  </button>
-                </div>
-              </div>
+              {navLinks.map((link) => (
+                <button
+                  key={link.page}
+                  onClick={() => handleNavigation(link.page)}
+                  className="text-left text-gray-700 hover:text-[#5B4B7A] font-medium"
+                >
+                  {link.label}
+                </button>
+              ))}
               <Button 
                 onClick={onDonateClick}
                 className="bg-[#FF8C00] hover:bg-[#FF7C00] text-white w-full"
               >
                 DONATE NOW
+              </Button>
+              <Button 
+                onClick={onLoginClick}
+                variant="outline"
+                className="border-[#8B7BA8] text-[#5B4B7A] hover:bg-[#F3F0F8] w-full"
+              >
+                Sign in
               </Button>
             </nav>
           </div>

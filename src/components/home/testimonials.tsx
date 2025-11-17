@@ -1,14 +1,13 @@
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '../ui/carousel';
 import { Button } from '../ui/button';
-import type { PageType } from '../../App';
 import Autoplay from 'embla-carousel-autoplay';
 
 interface TestimonialsCarouselProps {
-  onNavigate: (page: PageType) => void;
+  onDonateClick?: () => void;
 }
 
-export function TestimonialsCarousel({ onNavigate }: TestimonialsCarouselProps) {
+export function TestimonialsCarousel({ onDonateClick }: TestimonialsCarouselProps) {
   const testimonials = [
     {
       image: 'https://images.unsplash.com/photo-1663045281813-c7407a6ec613?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3RoZXIlMjBjaGlsZCUyMGhhcHB5fGVufDF8fHx8MTc2MzE4ODUzMHww&ixlib=rb-4.1.0&q=80&w=1080',
@@ -35,6 +34,7 @@ export function TestimonialsCarousel({ onNavigate }: TestimonialsCarouselProps) 
   const plugin = React.useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
   );
+  const handleDonate = onDonateClick || (() => {});
 
   return (
     <section className="py-20 bg-gradient-to-br from-[#F3F0F8] to-white">
@@ -84,7 +84,7 @@ export function TestimonialsCarousel({ onNavigate }: TestimonialsCarouselProps) 
                 </h3>
                 <Button
                   size="lg"
-                  onClick={() => onNavigate('donation-reasons')}
+                  onClick={handleDonate}
                   className="bg-white text-[#8B7BA8] hover:bg-gray-100"
                 >
                   Choose Your Gift

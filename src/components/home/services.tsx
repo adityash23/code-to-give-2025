@@ -1,11 +1,6 @@
 import { Home, Heart, Scale, GraduationCap, Globe2, Users } from 'lucide-react';
-import type { PageType } from '../../App';
 
-interface ServicesProps {
-  onNavigate: (page: PageType) => void;
-}
-
-export function Services({ onNavigate }: ServicesProps) {
+export function Services() {
   const services = [
     {
       icon: Home,
@@ -51,9 +46,8 @@ export function Services({ onNavigate }: ServicesProps) {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <button
+            <div
               key={index}
-              onClick={() => onNavigate('programs')}
               className="bg-gradient-to-br from-[#F3F0F8] to-white p-6 rounded-lg border border-[#E8E3F0] hover:shadow-lg transition-shadow text-left"
             >
               <div className="inline-flex items-center justify-center w-12 h-12 bg-[#8B7BA8] rounded-lg mb-4">
@@ -61,7 +55,7 @@ export function Services({ onNavigate }: ServicesProps) {
               </div>
               <h3 className="text-xl text-[#5B4B7A] mb-2">{service.title}</h3>
               <p className="text-gray-700">{service.description}</p>
-            </button>
+            </div>
           ))}
         </div>
       </div>

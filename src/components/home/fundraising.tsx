@@ -1,11 +1,13 @@
 import { Button } from '../ui/button';
-import { Heart, TrendingUp, Share2 } from 'lucide-react';
+import { Heart, TrendingUp, Share2, PlayCircle, Sparkles } from 'lucide-react';
+import { useState } from 'react';
 
 interface FundraisingSectionProps {
   onDonateClick: () => void;
 }
 
 export function FundraisingSection({ onDonateClick }: FundraisingSectionProps) {
+  const [showAdPanel, setShowAdPanel] = useState(false);
   // Mock data - in real implementation, this would come from a database
   const goalAmount = 500000; // $500,000 goal for 2026
   const currentAmount = 287500; // Current raised amount
@@ -81,6 +83,18 @@ export function FundraisingSection({ onDonateClick }: FundraisingSectionProps) {
               <Share2 className="w-5 h-5" />
               Share
             </button>
+
+            {/* Watch Ad Button */}
+            <button
+              onClick={() => setShowAdPanel(true)}
+              className="w-full sm:w-auto px-12 py-6 text-xl font-semibold text-[#0F172A]
+                         bg-white border border-[#CBD5F5]
+                         rounded-lg shadow-sm hover:shadow-md transition-all duration-300
+                         flex items-center justify-center gap-2"
+            >
+              <PlayCircle className="w-5 h-5 text-[#8B7BA8]" />
+              Watch an Ad to Support
+            </button>
           </div>
         </div>
 
@@ -134,22 +148,65 @@ export function FundraisingSection({ onDonateClick }: FundraisingSectionProps) {
           </p>
         </div>
 
-        {/* Impact Statement */}
-        <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
-          <div className="bg-gradient-to-br from-[#F3F0F8] to-white rounded-lg p-6 border border-[#E8E3F0]">
-            <div className="text-4xl text-[#8B7BA8] mb-2">1,200+</div>
-            <p className="text-gray-700">Families supported annually</p>
-          </div>
-          <div className="bg-gradient-to-br from-[#F3F0F8] to-white rounded-lg p-6 border border-[#E8E3F0]">
-            <div className="text-4xl text-[#8B7BA8] mb-2">24/7</div>
-            <p className="text-gray-700">Emergency shelter services</p>
-          </div>
-          <div className="bg-gradient-to-br from-[#F3F0F8] to-white rounded-lg p-6 border border-[#E8E3F0]">
-            <div className="text-4xl text-[#8B7BA8] mb-2">12+</div>
-            <p className="text-gray-700">Languages offered</p>
+        
+      </div>
+
+      {/* Watch Ad overlay */}
+      {showAdPanel && (
+        <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm flex items-center justify-center px-4">
+          <div className="relative w-full max-w-5xl bg-white rounded-[40px] shadow-2xl p-6 sm:p-10 space-y-6">
+            <button
+              onClick={() => setShowAdPanel(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl"
+              aria-label="Close"
+            >
+              ×
+            </button>
+
+            <div className="bg-gradient-to-r from-[#F7F4FC] to-white border border-[#E8E3F0] rounded-2xl p-6 flex flex-col sm:flex-row items-start gap-4">
+              <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shadow-sm">
+                <Sparkles className="w-7 h-7 text-[#8B7BA8]" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold tracking-[0.35em] text-[#8B7BA8] uppercase">Impact Tracker</p>
+                <p className="text-2xl font-semibold text-gray-900 leading-snug mt-2">
+                  Rome wasn't built in a day, just as a family isn't saved by one ad.
+                </p>
+                <p className="text-sm text-gray-600 mt-2">
+                  Every ad watched funds crisis response and emergency shelter.
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-[32px] border border-[#E8E3F0] bg-gradient-to-b from-white to-[#F9FAFB] text-[#1f1f1f] p-8 shadow-inner space-y-6">
+              <div className="flex items-center justify-between flex-wrap gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-[#F3F0F8] flex items-center justify-center text-[#8B7BA8]">
+                    <PlayCircle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold tracking-[0.4em] text-[#8B7BA8] uppercase">Ad Session</p>
+                    <p className="text-3xl font-semibold text-[#1F1F1F]">Hope Stories</p>
+                  </div>
+                </div>
+                <span className="text-sm text-gray-500">~30 seconds</span>
+              </div>
+              <div className="relative w-full h-72 bg-gray-100 rounded-[28px] flex items-center justify-center border border-[#E8E3F0]">
+                <p className="text-gray-500">Ad content placeholder</p>
+              </div>
+              <div className="flex items-center justify-between flex-wrap gap-4">
+                <p className="text-sm text-gray-600">Watching ads keeps our shelters funded.</p>
+                <Button
+                  onClick={() => setShowAdPanel(false)}
+                  className="bg-[#FF8C00] hover:bg-[#FF7C00] text-white px-6"
+                >
+                  Next
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

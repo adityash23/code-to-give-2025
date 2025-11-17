@@ -1,11 +1,11 @@
 import { Button } from '../ui/button';
-import type { PageType } from '../../App';
 
 interface SponsorsProps {
-  onNavigate: (page: PageType) => void;
+  onDonateClick?: () => void;
 }
 
-export function Sponsors({ onNavigate }: SponsorsProps) {
+export function Sponsors({ onDonateClick }: SponsorsProps) {
+  const handleDonate = onDonateClick || (() => {});
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,7 +35,7 @@ export function Sponsors({ onNavigate }: SponsorsProps) {
             </p>
             <Button
               size="lg"
-              onClick={() => onNavigate('sponsor')}
+              onClick={handleDonate}
               className="bg-[#8B7BA8] hover:bg-[#7A6A97] text-white"
             >
               Learn About Sponsorship Opportunities

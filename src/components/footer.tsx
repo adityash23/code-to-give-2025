@@ -1,14 +1,14 @@
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import type { PageType } from '../App';
 import logoImage  from '../assets/react.svg';
 
 interface FooterProps {
-  onNavigate: (page: PageType) => void;
+  onDonateClick?: () => void;
 }
 
-export function Footer({ onNavigate }: FooterProps) {
+export function Footer({ onDonateClick }: FooterProps) {
+  const handleDonate = onDonateClick || (() => {});
   return (
     <footer className="bg-[#E8E3F0] text-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -121,7 +121,10 @@ export function Footer({ onNavigate }: FooterProps) {
               <Youtube className="w-6 h-6" />
             </a>
           </div>
-          <Button className="bg-[#FF8C00] hover:bg-[#FF7C00] text-white px-8">
+          <Button
+            className="bg-[#FF8C00] hover:bg-[#FF7C00] text-white px-8"
+            onClick={handleDonate}
+          >
             Donate
           </Button>
         </div>
