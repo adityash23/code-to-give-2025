@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel';
-import raiseHandImage from '../../assets/react.svg';
-import lilacGalaImage from '../../assets/react.svg';
+import raiseHandImage from '../../assets/groupup.png';
+import lilacGalaImage from '../../assets/Motherson.png';
 import Autoplay from 'embla-carousel-autoplay';
 
 export function CurrentProjects() {

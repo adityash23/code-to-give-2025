@@ -87,12 +87,13 @@ export function FundraisingSection({ onDonateClick }: FundraisingSectionProps) {
             {/* Watch Ad Button */}
             <button
               onClick={() => setShowAdPanel(true)}
-              className="w-full sm:w-auto px-12 py-6 text-xl font-semibold text-[#0F172A]
-                         bg-white border border-[#CBD5F5]
-                         rounded-lg shadow-sm hover:shadow-md transition-all duration-300
+              className="w-full sm:w-auto px-12 py-6 text-xl font-semibold text-[#8B7BA8]
+                         bg-gradient-to-br from-[#F3F0F8] to-white
+                         border border-[#E8E3F0] rounded-lg shadow-sm
+                         hover:shadow-md hover:brightness-105 transition-all duration-300
                          flex items-center justify-center gap-2"
             >
-              <PlayCircle className="w-5 h-5 text-[#8B7BA8]" />
+              <PlayCircle className="w-5 h-5" />
               Watch an Ad to Support
             </button>
           </div>
