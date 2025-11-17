@@ -96,9 +96,9 @@ export function Dashboard({ onNavigate }: DashboardProps) {
           <section className="bg-white p-6 rounded-2xl shadow-sm">
             <h2 className="text-2xl font-semibold mb-4">Donation History</h2>
             <ul className="text-gray-600 space-y-2">
-              <li>March 2025 – €50 – General Donation</li>
-              <li>January 2025 – €25 – General Donation</li>
-              <li>November 2024 – €10 – General Donation</li>
+              <li>March 2025 – $50 – General Donation</li>
+              <li>January 2025 – $25 – General Donation</li>
+              <li>November 2024 – $10 – General Donation</li>
             </ul>
           </section>
         )}
