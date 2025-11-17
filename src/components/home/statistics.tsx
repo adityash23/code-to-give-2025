@@ -48,9 +48,8 @@ export function Statistics() {
         {/* Mini stats section */}
         <div className="grid sm:grid-cols-3 gap-8 mt-6">
           {stats.map(({ icon: Icon, number, label, description }) => (
-            <div key={label} className="flex flex-col items-center space-y-2">
-              <Icon className="w-8 h-8 text-[#8B7BA8]" />
-              <h3 className="text-2xl font-bold text-[#402C5A]">{number}</h3>
+            <div key={label} className="flex flex-col items-center space-y-2 bg-purple-50 backdrop-blur-sm rounded-lg p-6">
+              <h3 className="text-3xl font-bold text-[#402C5A]">{number}</h3>
               <p className="text-[#5B4B7A] font-medium">{label}</p>
               <p className="text-sm text-gray-600">{description}</p>
             </div>

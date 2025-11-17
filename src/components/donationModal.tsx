@@ -223,7 +223,7 @@ export function DonationModal({ isOpen, onClose, onLoginClick }: DonationModalPr
                   <Input
                     id="customMessage"
                     type="text"
-                    placeholder="Enter message"
+                    placeholder="Optional message"
                     className="pl-8 text-xl py-6"
                   />
                 </div>

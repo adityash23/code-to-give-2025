@@ -7,6 +7,7 @@ import { Services } from '../components/home/services';
 import { TestimonialsCarousel } from '../components/home/testimonials';
 import { CurrentProjects } from '../components/home/currentProjects';
 import { Sponsors } from '../components/home/sponsors';
+import { OtherWaysToHelp } from '../components/home/other';
 import type { PageType } from '../App';
 
 interface HomePageProps {
@@ -28,6 +29,7 @@ export function HomePage({ onNavigate, onDonateClick }: HomePageProps) {
       <TestimonialsCarousel onNavigate={onNavigate} />
       
       <Sponsors onNavigate={onNavigate} />
+      <OtherWaysToHelp />
     </div>
   );
 }
