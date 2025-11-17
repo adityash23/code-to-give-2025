@@ -19,13 +19,14 @@ export function HomePage({ onNavigate, onDonateClick }: HomePageProps) {
     <div>
       <Hero onNavigate={onNavigate} />
       <Statistics />
+      <CurrentProjects />
       <FundraisingSection onDonateClick={onDonateClick || (() => {})} />
       <SponsorsLeaderboard />
       <Mission />
 
       <Services onNavigate={onNavigate} />
       <TestimonialsCarousel onNavigate={onNavigate} />
-      <CurrentProjects />
+      
       <Sponsors onNavigate={onNavigate} />
     </div>
   );

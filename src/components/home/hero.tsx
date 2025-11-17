@@ -31,7 +31,7 @@ export function Hero({ onDonateClick }: HeroProps) {
           onClick={handleDonate}
           className="bg-[#FF8C00] hover:bg-[#FF7C00] text-white px-10 py-4 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all"
         >
-          Open the Door for Someone Tonight
+          Donate Now
         </Button>
       </div>
     </section>

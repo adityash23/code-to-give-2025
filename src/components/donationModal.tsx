@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { X, Check, Heart, Share2 } from 'lucide-react';
+import { X, Check, Share2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
+import thankYouImage from '../assets/Thankyou.png';
 
 interface DonationModalProps {
   isOpen: boolean;
@@ -28,7 +29,7 @@ export function DonationModal({ isOpen, onClose, onLoginClick }: DonationModalPr
     onClose();
   };
 
-  const suggestedAmounts = [35, 50, 100, 250, 500, 1000, 10000];
+  const suggestedAmounts = [35, 50, 100, 250, 500, 1000];
 
   const getImpactMessage = (amount: number | string): string => {
     const numAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
@@ -78,7 +79,7 @@ export function DonationModal({ isOpen, onClose, onLoginClick }: DonationModalPr
         {/* Calm storytelling column to balance the donation UI */}
         <div className="flex-1 w-full bg-white/90 border border-slate-200 rounded-2xl shadow-sm p-6 md:p-8 flex flex-col">
           <p className="text-sm font-semibold tracking-[0.2em] text-[#8B7BA8] uppercase">
-            Why We Need You
+            Testimonials
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mt-3">
             Your compassion keeps families safe and hopeful.
@@ -212,6 +213,21 @@ export function DonationModal({ isOpen, onClose, onLoginClick }: DonationModalPr
                   </p>
                 </div>
               )}
+
+              {/* Custom Message */}
+              <div>
+                <Label htmlFor="customAmount" className="text-lg text-[#5B4B7A] mb-2 block">
+                  Enter a custom message
+                </Label>
+                <div className="relative">
+                  <Input
+                    id="customMessage"
+                    type="text"
+                    placeholder="Enter message"
+                    className="pl-8 text-xl py-6"
+                  />
+                </div>
+              </div>
 
               <Button
                 size="lg"
@@ -391,8 +407,8 @@ export function DonationModal({ isOpen, onClose, onLoginClick }: DonationModalPr
 
           {step === 'complete' && (
             <div className="text-center space-y-6 py-8">
-              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-                <Heart className="w-10 h-10 text-green-600 fill-current" />
+              <div className="w-32 h-32 rounded-full bg-white shadow-md flex items-center justify-center mx-auto">
+                <img src={thankYouImage} alt="Thank you" className="w-100 h-100 object-contain" />
               </div>
               <div>
                 <h3 className="text-3xl text-[#5B4B7A] mb-2">Thank You!</h3>
