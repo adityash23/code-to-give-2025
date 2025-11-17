@@ -4,6 +4,9 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import thankYouImage from '../assets/Thankyou.png';
+import testimonialImage1 from '../assets/testimonials1.png';
+import testimonialImage2 from '../assets/testimonials2.png';
+import testimonialImage3 from '../assets/testimonials3.png';
 
 interface DonationModalProps {
   isOpen: boolean;
@@ -81,30 +84,48 @@ export function DonationModal({ isOpen, onClose, onLoginClick }: DonationModalPr
           <p className="text-sm font-semibold tracking-[0.2em] text-[#8B7BA8] uppercase">
             Testimonials
           </p>
+
           <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mt-3">
             Your compassion keeps families safe and hopeful.
           </h2>
-          <div className="mt-6 flex-1 max-h-[45vh] md:max-h-[60vh] overflow-y-auto pr-1 text-gray-600 leading-relaxed space-y-4">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse volutpat magna sed
-              justo malesuada dictum. Cras consectetur ligula et neque scelerisque, at scelerisque
-              sem tristique. Integer facilisis mattis lectus, eu consequat ligula elementum nec.
-            </p>
-            <p>
-              Etiam eu varius risus. Vivamus et rutrum arcu. Duis id interdum erat. Praesent
-              imperdiet viverra urna sed gravida. Curabitur volutpat mauris vel lacus mattis
-              convallis. Donec faucibus, magna sed hendrerit imperdiet, massa justo aliquet ipsum,
-              sed tincidunt ex erat sed odio. Pellentesque habitant morbi tristique senectus et netus
-              et malesuada fames ac turpis egestas.
-            </p>
-            <p>
-              Nunc dictum malesuada eros sed pulvinar. Nulla viverra sagittis arcu a suscipit. Fusce
-              id rhoncus quam. Aenean volutpat malesuada erat non posuere. Donec congue purus eget
-              enim pretium fermentum. Integer posuere magna quis quam consequat, et sodales dui
-              tincidunt.
-            </p>
+
+          <div className="mt-6 flex-1 max-h-[45vh] md:max-h-[60vh] overflow-y-auto pr-1 space-y-6">
+            {/* Testimonial Item */}
+            <div className="flex items-start gap-4">
+              <img
+                src={testimonialImage1}
+                alt="Client photo"
+                className="w-20 h-20 rounded-xl object-cover flex-shrink-0"
+              />
+              <p className="text-gray-600 leading-relaxed">
+                “Your team stepped in when everything felt overwhelming. The guidance was clear, the support was steady, and we finally felt like we weren’t navigating this alone.”
+              </p>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <img
+                src={testimonialImage2}
+                alt="Client photo"
+                className="w-20 h-20 rounded-xl object-cover flex-shrink-0"
+              />
+              <p className="text-gray-600 leading-relaxed">
+                “The level of care was exceptional. Every interaction was professional, patient, and sincere. You gave us structure at a time when everything felt chaotic.”
+              </p>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <img
+                src={testimonialImage3}
+                alt="Client photo"
+                className="w-20 h-20 rounded-xl object-cover flex-shrink-0"
+              />
+              <p className="text-gray-600 leading-relaxed">
+                “The shelter gave us a safe place when we had nowhere else to go. The staff didn’t judge us—they helped us stabilize, regroup, and start rebuilding our lives.”
+              </p>
+            </div>
           </div>
         </div>
+
 
         <div className="w-full md:max-w-md flex justify-end">
           <div className="bg-white rounded-2xl shadow-xl border border-slate-100 w-full max-h-[85vh] overflow-y-auto">
