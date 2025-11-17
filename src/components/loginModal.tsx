@@ -2,16 +2,24 @@ import { useState } from 'react';
 import { X, Eye, EyeOff, Facebook, Apple } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import type { PageType } from '../App';
 
 interface LoginModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onNavigate: (page: PageType) => void;
 }
 
-export function LoginModal({ isOpen, onClose }: LoginModalProps) {
+
+export function LoginModal({ isOpen, onClose, onNavigate }: LoginModalProps) {
   const [showPasscode, setShowPasscode] = useState(false);
 
   if (!isOpen) return null;
+
+  const handleSignIn = () => {
+    onNavigate('dashboard'); 
+    onClose(); 
+  };
 
   return (
     <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
@@ -60,7 +68,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
         <p className="text-sm text-gray-600">Having trouble signing in?</p>
 
-        <Button className="w-full h-12 rounded-2xl bg-[#FFB166] hover:bg-[#FFA24C] text-gray-900 text-lg font-semibold">
+        <Button onClick={handleSignIn} className="w-full h-12 rounded-2xl bg-[#FFB166] hover:bg-[#FFA24C] text-gray-900 text-lg font-semibold">
           Sign in
         </Button>
 

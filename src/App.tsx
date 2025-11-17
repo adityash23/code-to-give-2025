@@ -15,6 +15,7 @@ import { DonationAmountPage } from "./pages/donationAmount";
 import { ProgramsPage } from "./pages/programs";
 import { VolunteerPage } from "./pages/volunteer";
 import { SponsorPage } from "./pages/sponsor";
+import { Dashboard } from "./pages/dashboard";
 
 export type PageType =
   | "home"
@@ -29,6 +30,7 @@ export type PageType =
   | "donation-amount"
   | "programs"
   | "volunteer"
+  | "dashboard"
   | "sponsor";
 
 export default function App() {
@@ -74,6 +76,8 @@ export default function App() {
         return <VolunteerPage />;
       case "sponsor":
         return <SponsorPage />;
+      case "dashboard":
+        return <Dashboard onNavigate={setCurrentPage} />
       default:
         return <HomePage onNavigate={setCurrentPage} />;
     }
@@ -100,6 +104,7 @@ export default function App() {
       <LoginModal
         isOpen={loginModalOpen}
         onClose={() => setLoginModalOpen(false)}
+        onNavigate={setCurrentPage}
       />
     </div>
   );
