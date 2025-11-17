@@ -39,6 +39,7 @@ export default function App() {
   const [donationModalOpen, setDonationModalOpen] =
     useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const renderPage = () => {
     switch (currentPage) {
@@ -77,7 +78,7 @@ export default function App() {
       case "sponsor":
         return <SponsorPage />;
       case "dashboard":
-        return <Dashboard onNavigate={setCurrentPage} />
+        return <Dashboard onNavigate={setCurrentPage} setLoggedIn={setLoggedIn} />;
       default:
         return <HomePage onNavigate={setCurrentPage} />;
     }
@@ -90,6 +91,8 @@ export default function App() {
         onNavigate={setCurrentPage}
         onDonateClick={() => setDonationModalOpen(true)}
         onLoginClick={() => setLoginModalOpen(true)}
+        loggedIn={loggedIn}
+        setLoggedIn={setLoggedIn}
       />
       {renderPage()}
       <Footer onNavigate={setCurrentPage} />
@@ -105,6 +108,7 @@ export default function App() {
         isOpen={loginModalOpen}
         onClose={() => setLoginModalOpen(false)}
         onNavigate={setCurrentPage}
+        setLoggedIn={setLoggedIn}
       />
     </div>
   );

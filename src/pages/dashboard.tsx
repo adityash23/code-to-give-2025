@@ -4,9 +4,10 @@ import type { PageType } from '../App';
 
 interface DashboardProps {
   onNavigate: (page: PageType) => void;
+  setLoggedIn: (value: boolean) => void;
 }
 
-export function Dashboard({ onNavigate }: DashboardProps) {
+export function Dashboard({ onNavigate, setLoggedIn }: DashboardProps) {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
@@ -31,7 +32,10 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               </button>
               {/* Sign Out */}
               <button
-                onClick={() => onNavigate('home')} // ← Use onNavigate for logout
+                onClick={() => {
+                  setLoggedIn(false);   
+                  onNavigate('home');    
+                }}
                 className="p-2 hover:bg-[#69589c] rounded-full transition-colors"
               >
                 <LogOut className="w-6 h-6" />

@@ -52,6 +52,8 @@ interface HeaderProps {
   onNavigate: (page: PageType) => void;
   onDonateClick: () => void;
   onLoginClick: () => void;
+  loggedIn: boolean;
+  setLoggedIn: (value: boolean) => void;
 }
 
 export function Header({
@@ -59,6 +61,8 @@ export function Header({
   onNavigate,
   onDonateClick,
   onLoginClick,
+  loggedIn,
+  setLoggedIn
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
@@ -136,13 +140,27 @@ export function Header({
             >
               DONATE NOW
             </Button>
-            <Button
-              onClick={onLoginClick}
-              variant="outline"
-              className="border-[#8B7BA8] text-[#5B4B7A] hover:bg-[#F3F0F8] px-6"
-            >
-              Sign in
-            </Button>
+            {loggedIn ? (
+              <Button
+                onClick={() => {
+                  setLoggedIn(false);    // log out
+                  onNavigate('home');    // redirect to home page
+                }}
+                variant="outline"
+                className="border-[#8B7BA8] text-[#5B4B7A] hover:bg-[#F3F0F8] px-6"
+              >
+                Sign out
+              </Button>
+            ) : (
+              <Button
+                onClick={onLoginClick}
+                variant="outline"
+                className="border-[#8B7BA8] text-[#5B4B7A] hover:bg-[#F3F0F8] px-6"
+              >
+                Sign in
+              </Button>
+            )}
+
 
             {/* 🌐 Language Selector */}
             <div className="relative">

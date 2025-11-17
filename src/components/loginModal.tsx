@@ -8,16 +8,18 @@ interface LoginModalProps {
   isOpen: boolean;
   onClose: () => void;
   onNavigate: (page: PageType) => void;
+  setLoggedIn: (loggedIn: boolean) => void; 
 }
 
 
-export function LoginModal({ isOpen, onClose, onNavigate }: LoginModalProps) {
+export function LoginModal({ isOpen, onClose, onNavigate, setLoggedIn }: LoginModalProps) {
   const [showPasscode, setShowPasscode] = useState(false);
 
   if (!isOpen) return null;
 
   const handleSignIn = () => {
     onNavigate('dashboard'); 
+    setLoggedIn(true);
     onClose(); 
   };
 
